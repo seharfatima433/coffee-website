@@ -438,7 +438,9 @@ body.cart-open .cart-overlay { opacity: 1; visibility: visible; }
   .reveal-on [data-reveal] { opacity: 1; transform: none; }
 }
 
-/* ---------- Real photos (fall back to the icon art if a file is missing) ---------- */
+/* ---------- Real photos ----------
+   Photos sit on top of the drawn icon art. If a photo file is missing, JS removes the <img>
+   and the coloured icon card shows instead, so nothing looks broken. ---------- */
 .slide-art img, .story-art img, .tile > img, .lightbox-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .story-art > img { z-index: 1; }
 .tile > img { transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
@@ -449,10 +451,10 @@ body.cart-open .cart-overlay { opacity: 1; visibility: visible; }
 .tile:has(> img) strong, .tile:has(> img) span { color: #fff; z-index: 1; }
 .lightbox-art:has(img)::before, .lightbox-art:has(img) .icon { display: none; }
 
-/* Hide the drawn icon whenever a real photo is present */
+/* Hide the drawn icon whenever a real photo is present (:has() checks if the card contains an <img>) */
 .slide-art:has(img) .icon, .story-art:has(img) .icon, .story-art:has(img)::before, .menu-item .pic:has(img) .icon { display: none; }
 .slide-art:has(img)::before, .slide-art:has(img)::after { display: none; }
-/* Home: fresh-from-the-counter photo strip */
+/* Home: 'Fresh from the counter' photo strip. 6 columns on desktop, 3 on tablet, 2 on phone */
 .fresh-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
 .fresh-card { position: relative; display: block; aspect-ratio: 3 / 4; border: 3px solid var(--edge); border-radius: 18px; box-shadow: 4px 4px 0 var(--edge); overflow: hidden; background: var(--tan); }
 .fresh-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
@@ -461,14 +463,14 @@ body.cart-open .cart-overlay { opacity: 1; visibility: visible; }
 @media (max-width: 1024px) { .fresh-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 600px) { .fresh-grid { grid-template-columns: repeat(2, 1fr); } }
 
-/* Hero: round photos under the buttons */
+/* Small round photos (overlapping) - kept for the optional hero photo row */
 .hero-photos { display: flex; align-items: center; gap: 1rem; margin-top: 2rem; }
 .hero-photos .stack { display: flex; }
 .hero-photos img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 3px solid var(--edge); background: var(--tan); margin-left: -16px; box-shadow: 3px 3px 0 var(--edge); }
 .hero-photos img:first-child { margin-left: 0; }
 .hero-photos p { font-size: .92rem; color: var(--muted); line-height: 1.4; }
 .hero-photos strong { color: var(--ink); }
-/* Home: story with photo collage */
+/* Home: story section collage: one tall photo on the left, two stacked on the right */
 .collage { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 1rem; aspect-ratio: 1; }
 .collage img { width: 100%; height: 100%; object-fit: cover; border: 3px solid var(--edge); border-radius: 22px; box-shadow: 4px 4px 0 var(--edge); background: var(--tan); }
 .collage img:first-child { grid-row: 1 / 3; }
@@ -496,12 +498,13 @@ body.cart-open .cart-overlay { opacity: 1; visibility: visible; }
   .dial-sky svg { height: auto; min-height: 0; }
 }
 
-/* ===== Checkout ===== */
+/* ===== Checkout page =====
+   Two columns: the form on the left and a sticky order summary on the right (stacked on tablet and phone). */
 .checkout-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
 .checkout-grid h2 { font-size: 1.7rem; margin-bottom: 1rem; }
 .choices { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-bottom: 1.4rem; }
 .choice { position: relative; display: block; cursor: pointer; }
-.choice input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.choice input { /* the real radio button is invisible but still works with keyboard and screen readers */ position: absolute; opacity: 0; inset: 0; cursor: pointer; }
 .choice span { display: block; padding: .9rem 1rem; border: 3px solid var(--edge); border-radius: 16px; background: var(--surface); font-weight: 700; line-height: 1.3; transition: background .2s, color .2s, transform .2s; }
 .choice small { display: block; font-weight: 500; color: var(--muted); font-size: .8rem; }
 .choice input:checked + span { background: var(--btn-bg); color: var(--btn-ink); }
@@ -523,7 +526,8 @@ body.cart-open .cart-overlay { opacity: 1; visibility: visible; }
 @media (max-width: 900px) { .checkout-grid { grid-template-columns: 1fr; } .summary { position: static; order: -1; } }
 @media (max-width: 480px) { .choices { grid-template-columns: 1fr; } }
 
-/* ===== Phone-message pop-up ===== */
+/* ===== Phone-message pop-up =====
+   A <dialog> styled like a phone. The 'typing' dots show first, then the message bubble slides in. */
 .sms-dialog { margin: auto; border: 0; background: transparent; padding: 1rem; max-width: 100%; text-align: center; overflow: visible; }
 .sms-dialog::backdrop { background: rgba(30, 18, 10, .62); backdrop-filter: blur(3px); }
 .sms-dialog[open] { animation: pop .45s cubic-bezier(.2, 1.2, .3, 1); }

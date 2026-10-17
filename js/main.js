@@ -11,6 +11,7 @@
     6. Typing animation               14. Gallery filter + lightbox
     7. Parallax beans + tilt cards    15. Forms: validation
     8. Sliders (specials, reviews)    16. "Open now" badge
+                                     17. Checkout page + phone-message pop-up
    ========================================================================== */
 
 'use strict';
@@ -148,6 +149,7 @@ $$('.slider').forEach(function imageSlider(slider) {
   const autoplayMs = Number(slider.dataset.autoplay || 0);
   let index = 0, timer = null;
 
+  // One round button per slide; clicking a dot jumps to that slide and stops autoplay
   const dots = slides.map((slide, i) => {
     const dot = document.createElement('button');
     dot.type = 'button';
@@ -158,6 +160,7 @@ $$('.slider').forEach(function imageSlider(slider) {
     return dot;
   });
 
+  // Show slide number i: slide the track sideways and update the dots and aria attributes
   function goTo(i) {
     index = (i + slides.length) % slides.length;       // wraps around at both ends
     track.style.transform = `translateX(-${index * 100}%)`;
@@ -167,6 +170,7 @@ $$('.slider').forEach(function imageSlider(slider) {
       dot.setAttribute('aria-current', String(n === index));
     });
   }
+  // Autoplay helpers (autoplay is skipped for visitors who prefer reduced motion)
   function start() { if (!autoplayMs || reduceMotion || timer) return; timer = setInterval(() => goTo(index + 1), autoplayMs); }
   function stop() { clearInterval(timer); timer = null; }
 
@@ -214,6 +218,7 @@ $$('.slider').forEach(function imageSlider(slider) {
 
 /* ---------- 10. The sundial: choose the hour ---------- */
 // The same prices as the menu on the Services page
+// The five times of day. Each phase has its colour theme (in CSS), a drink suggestion and a photo.
 const PHASES = {
   dawn:      { photo: 'Cardamom Cortado a cup of coffee.jpg', name: 'Dawn',        kicker: 'First light calls for',  drink: 'Cardamom Cortado',   price: 650, text: 'Espresso, warm milk and freshly crushed cardamom. Gentle, like the sky.' },
   morning:   { photo: 'Hazelnut coffee.jpg', name: 'Morning',     kicker: 'To start the day',       drink: 'Flat White',         price: 560, text: 'Silky milk over a double ristretto. Smooth, strong and ready for your inbox.' },
@@ -221,6 +226,7 @@ const PHASES = {
   golden:    { photo: 'Rose Pistachio Latte a latte.jpg', name: 'Golden hour', kicker: 'As the light turns',     drink: 'Rose Pistachio Latte', price: 680, text: 'Rose syrup, crushed pistachio and steamed milk. Made for slow evenings.' },
   night:     { photo: 'Decaf Hazelnut Mocha.jpg', name: 'Night',       kicker: 'For the late shift',     drink: 'Decaf Hazelnut Mocha', price: 640, text: 'Dark chocolate and roasted hazelnut, without the buzz. Sleep stays safe.' },
 };
+// Turns an hour (0 to 23) into one of the five phase names
 function phaseForHour(hour) {
   if (hour >= 5 && hour < 8) return 'dawn';
   if (hour >= 8 && hour < 12) return 'morning';
@@ -248,6 +254,7 @@ function phaseForHour(hour) {
     body.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
   }
 
+  // Updates the suggested-drink card with a short fade so the change feels smooth
   function showReco(phase) {
     const data = PHASES[phase];
     const apply = () => {
@@ -266,6 +273,7 @@ function phaseForHour(hour) {
     setTimeout(apply, 220);
   }
 
+  // Main sundial update: clock text, sun/moon position, sky phase and the drink suggestion
   function setHour(hour) {
     hour = Number(hour);
     range.value = hour;
@@ -312,6 +320,7 @@ const toast = (function toastMessages() {
   try { order = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch (error) { order = {}; }
   const save = () => { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(order)); } catch (error) { /* ignore */ } };
 
+  // Redraws the whole order drawer from the 'order' object, then saves it and tells other code it changed
   function render() {
     const names = Object.keys(order);
     const count = names.reduce((sum, n) => sum + order[n].qty, 0);
@@ -339,8 +348,10 @@ const toast = (function toastMessages() {
     document.dispatchEvent(new CustomEvent('order-changed'));
   }
 
+  // The checkout page asks for the order to be cleared after a successful purchase
   document.addEventListener('order-clear', () => { order = {}; render(); });
 
+  // Open or close the drawer and move keyboard focus accordingly
   function setOpen(open) {
     document.body.classList.toggle('cart-open', open);
     drawer.setAttribute('aria-hidden', String(!open));
@@ -419,8 +430,10 @@ const toast = (function toastMessages() {
   }));
 
   if (!dialog || typeof dialog.showModal !== 'function') return;
-  let current = 0;
+  let current = 0;                                    // index of the project shown in the lightbox
+  // Only tiles that are not hidden by the filter can be stepped through
   const visible = () => tiles.filter((t) => !t.hidden);
+  // Fill the lightbox with the clicked tile's title, text and photo
   function show(tile) {
     $('#lightbox-title').textContent = tile.dataset.title;
     $('#lightbox-text').textContent = tile.dataset.text;
@@ -452,7 +465,9 @@ const RULES = {
   subject: (v) => (v === '' ? 'Please choose a subject.' : ''),
   message: (v) => (v.trim().length < 20 ? 'Please write at least 20 characters so we can help you properly.' : ''),
 };
+// Shared validation for every form: 'fields' are the input names to check and 'onValid' runs when all pass
 function attachValidation(form, fields, onValid) {
+  // Check one field, show or clear its message, and return true when it is valid
   function check(field) {
     const input = form.elements[field];
     const message = RULES[field](input.value);
@@ -523,12 +538,14 @@ function attachValidation(form, fields, onValid) {
 /* ---------- 17. Checkout page (demo: nothing is charged, nothing is sent) ---------- */
 (function checkoutPage() {
   const form = $('#checkout-form');
-  if (!form) return;
-  const FREE_DELIVERY_FROM = 3000, DELIVERY_FEE = 150;
-  let order = {};
+  if (!form) return;                                  // only runs on checkout.html
+  const FREE_DELIVERY_FROM = 3000, DELIVERY_FEE = 150;   // in rupees
+  let order = {};                                     // copy of the saved order
+  // Read the order that the cart saved in localStorage
   const read = () => { try { order = JSON.parse(localStorage.getItem('sundial-order')) || {}; } catch (error) { order = {}; } };
   const typeValue = () => form.querySelector('input[name="type"]:checked').value;
 
+  // Subtotal, delivery fee and total (delivery is free for pickup or orders over the limit)
   function totals() {
     const names = Object.keys(order);
     const subtotal = names.reduce((s, n) => s + order[n].price * order[n].qty, 0);
@@ -536,6 +553,7 @@ function attachValidation(form, fields, onValid) {
     return { names, subtotal, fee, total: subtotal + fee };
   }
 
+  // Draw the order summary box; show the 'empty order' message when there is nothing to buy
   function render() {
     if (!$('#checkout-done').hidden) return;          // the thank-you card is showing, leave the page as it is
     read();
@@ -560,6 +578,7 @@ function attachValidation(form, fields, onValid) {
       ? `Add ${formatRs(FREE_DELIVERY_FROM - t.subtotal)} more for free delivery.` : '';
   }
 
+  // Switch the page between Delivery and Pickup: address field, payment wording and time note
   function updateType() {
     const pickup = typeValue() === 'pickup';
     $('#address-field').hidden = pickup;
@@ -593,10 +612,11 @@ function attachValidation(form, fields, onValid) {
     popup.addEventListener('click', (event) => { if (event.target === popup) popup.close(); });
   }
 
+  // When the form is valid: make an order number, show the thank-you card, open the message pop-up, empty the cart
   attachValidation(form, ['name', 'mobile', 'address'], () => {
     const t = totals();
     if (t.names.length === 0) return;
-    const number = 'SC-' + String(Math.floor(1000 + Math.random() * 9000));
+    const number = 'SC-' + String(Math.floor(1000 + Math.random() * 9000));   // random 4-digit demo order number
     const pickup = typeValue() === 'pickup';
     const pay = form.querySelector('input[name="payment"]:checked').value;
     $('#done-number').textContent = number;

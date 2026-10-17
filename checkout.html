@@ -107,7 +107,9 @@
           <a class="btn" href="services.html">Browse the menu</a>
         </div>
 
+        <!-- Two columns: details form (left) and order summary (right). Hidden after the order is placed. -->
         <div class="checkout-grid" id="checkout-main">
+          <!-- novalidate: js/main.js shows friendlier messages than the browser pop-ups -->
           <form class="card form" id="checkout-form" novalidate>
             <h2>Delivery details</h2>
             <p class="legend">How would you like it?</p>
@@ -142,6 +144,7 @@
             <button class="btn" type="submit">Place order</button>
           </form>
 
+          <!-- Filled in by js/main.js from the order saved in localStorage -->
           <aside class="card summary" aria-label="Order summary">
             <h2>Order summary</h2>
             <ul id="sum-items"></ul>
@@ -153,6 +156,7 @@
           </aside>
         </div>
 
+        <!-- Thank-you card: shown after a valid order (tabindex=-1 lets JS move focus here) -->
         <div class="card done" id="checkout-done" tabindex="-1" hidden>
           <svg class="icon " aria-hidden="true"><use href="#i-check"/></svg>
           <h2>Thank you, <span id="done-name"></span>!</h2>
