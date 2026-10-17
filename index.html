@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sundial Coffee Roasters | Coffee for every hour</title>
+  <meta name="description" content="Small-batch coffee for every hour of the day, roasted each morning in Lahore.">
+  <!-- Apply the saved (or system) colour theme before the page paints, so there is no flash -->
+  <script>
+    (function () {
+      var theme = 'light';
+      try { theme = localStorage.getItem('sundial-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {}
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3.5v2.5M12 3.5v2.5"/></symbol>
+    <symbol id="i-glass" viewBox="0 0 24 24"><path d="M6 4h12l-1.5 16h-9z"/><path d="M7.2 10h9.6"/><path d="M13 2.5l-1.5 5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></symbol>
+    <symbol id="i-bean" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="6" ry="9.5" transform="rotate(35 12 12)"/><path d="M8 18c3.5-2 5-5.5 8-11"/></symbol>
+    <symbol id="i-cake" viewBox="0 0 24 24"><path d="M4 20h16v-8H4z"/><path d="M4 15c2.5 2 4.5-2 8 0s5.5-2 8 0"/><path d="M12 7v3M12 4.5c.6.8.6 1.4 0 2"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h11v10H2z"/><path d="M13 9.5h4l3.5 3.5V16H13"/><circle cx="6.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14c2.7 0 4.5 1.8 4.5 4.5"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1L3.2 9.4l6.1-.8z"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6.5L20.5 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l1.5 4-2 1.5a11 11 0 0 0 6 6L16 13.5l4 1.5v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.5l3 3 6-7"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 10 10 5 20 4c0 10-5 15-14 15z"/><path d="M5 19c3-5 6-8 10-10"/></symbol>
+  </svg>
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ===== Header and navigation (same on every page) ===== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo" aria-label="Sundial Coffee Roasters, home"><span class="logo-badge"><svg class="icon " aria-hidden="true"><use href="#i-sun"/></svg></span><span class="logo-name">Sundial</span></a>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-tools">
+        <button class="icon-btn cart-btn" type="button" aria-label="Open your order"><svg class="icon " aria-hidden="true"><use href="#i-bag"/></svg><span class="cart-count" aria-hidden="true">0</span></button>
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><svg class="icon " aria-hidden="true"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Order drawer: items are added with the "Add to order" buttons ===== -->
+  <div class="cart-overlay"></div>
+  <aside class="cart" id="cart" aria-label="Your order" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Your order</h2>
+      <button class="icon-btn" id="cart-close" type="button" aria-label="Close your order"><svg class="icon " aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="cart-body">
+      <p class="cart-empty" id="cart-empty">Nothing here yet. Add a drink from the menu and it will wait for you here.</p>
+      <ul id="cart-items"></ul>
+    </div>
+    <div class="cart-foot" id="cart-foot" hidden>
+      <div class="cart-total"><span>Total</span><span id="cart-total">Rs 0</span></div>
+      <a class="btn" id="cart-send" href="checkout.html">Go to checkout</a>
+      <button class="btn btn-ghost" id="cart-clear" type="button">Clear order</button>
+      <p class="cart-note">Demo checkout: nothing is charged and no payment details are needed.</p>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <main>
+
+    <!-- ===== Hero: typing animation + the sundial (choose the hour) ===== -->
+    <section class="hero">
+      <div class="hero-beans" aria-hidden="true">
+        <span class="bean bean-1"><svg class="icon " aria-hidden="true"><use href="#i-bean"/></svg></span><span class="bean bean-2"><svg class="icon " aria-hidden="true"><use href="#i-bean"/></svg></span>
+        <span class="bean bean-3"><svg class="icon " aria-hidden="true"><use href="#i-bean"/></svg></span><span class="bean bean-4"><svg class="icon " aria-hidden="true"><use href="#i-bean"/></svg></span>
+      </div>
+      <div class="wrap hero-grid">
+        <div>
+          <h1>
+            <span class="line">Coffee for your</span>
+            <span class="line typed-line"><span id="typed" data-words='["dawn.","deadline.","golden hour.","midnight oil.","rainy day."]'>golden hour.</span><span class="caret" aria-hidden="true"></span></span>
+          </h1>
+          <p class="hero-lead">Every hour asks for a different cup. Small-batch coffee roasted this morning in Lahore, poured with fresh bakes for the time of day you are in.</p>
+          <div class="btn-row">
+            <a class="btn" href="services.html">Explore the menu</a>
+            <a class="btn btn-ghost" href="#sundial">Try the sundial</a>
+          </div>
+
+        </div>
+
+        <div class="hero-photo">
+          <img src="images/Cardamom%20Cortado%20a%20cup%20of%20coffee.jpg" alt="A cup of Cardamom Cortado" fetchpriority="high" decoding="async" onerror="this.remove()">
+          <span class="hero-tag hero-tag-a">Roasted at 6 AM</span>
+          <span class="hero-tag hero-tag-b">Fairly sourced</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Moving ticker of what we pour ===== -->
+    <div class="marquee" aria-label="What Sundial pours through the day">
+      <div class="marquee-track">
+        <ul><li>Dawn: Cardamom Cortado</li><li>Morning: Flat White</li><li>Afternoon: Mango Cold Brew</li><li>Golden hour: Rose Pistachio Latte</li><li>Night: Decaf Hazelnut Mocha</li><li>Roasted fresh every morning</li></ul>
+        <div aria-hidden="true" style="display:contents"><ul><li>Dawn: Cardamom Cortado</li><li>Morning: Flat White</li><li>Afternoon: Mango Cold Brew</li><li>Golden hour: Rose Pistachio Latte</li><li>Night: Decaf Hazelnut Mocha</li><li>Roasted fresh every morning</li></ul></div>
+      </div>
+    </div>
+
+    <!-- ===== The sundial: choose the hour ===== -->
+    <section class="section dial-section" data-phase="morning" id="sundial">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <h2>Coffee <em>by the hour</em></h2>
+          <p>Slide the sundial and see what Sundial would pour for you at any time of day.</p>
+        </div>
+        <div class="dial" data-phase="morning" data-reveal>
+          <div class="dial-sky">
+            <svg viewBox="0 22 320 168" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+              <g class="dial-stars"><circle cx="40" cy="40" r="2"/><circle cx="92" cy="22" r="1.6"/><circle cx="132" cy="62" r="1.8"/><circle cx="204" cy="30" r="2"/><circle cx="262" cy="56" r="1.7"/><circle cx="288" cy="24" r="2"/><circle cx="60" cy="90" r="1.5"/></g>
+              <path class="dial-arc" d="M36 168 A124 124 0 0 1 284 168"/>
+              <g class="dial-body" id="dial-body">
+                <circle class="dial-sun-halo" r="31"/>
+                <circle class="dial-sun" r="17"/>
+                <path class="dial-moon" d="M6 -13.5 A15 15 0 1 0 13.5 6 A12 12 0 1 1 6 -13.5 Z"/>
+              </g>
+              <path class="dial-hill" d="M0 190 V162 Q55 138 112 158 T232 152 T320 162 V190 Z"/>
+            </svg>
+            <div class="dial-time"><strong id="dial-clock">9:00 AM</strong><span id="dial-phase">Morning</span></div>
+          </div>
+          <div class="dial-control">
+            <label for="dial-range">Drag to choose the hour</label>
+            <input class="dial-range" id="dial-range" type="range" min="0" max="23" step="1" value="9">
+            <div class="dial-ticks" aria-hidden="true"><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>11 PM</span></div>
+            <button class="dial-now" id="dial-now" type="button">Use the current time in Lahore</button>
+          </div>
+          <div class="reco" aria-live="polite">
+            <img class="reco-img" id="reco-img" src="images/Hazelnut%20coffee.jpg" alt="Flat White" decoding="async" onerror="this.style.display='none'">
+            <p class="reco-kicker" id="reco-kicker">To start the day</p>
+            <h3 id="reco-name">Flat White</h3>
+            <span class="price" id="reco-price">Rs 560</span>
+            <p id="reco-text">Silky milk over a double ristretto. Smooth, strong and ready for your inbox.</p>
+            <button class="btn btn-sm" id="reco-add" type="button" data-add data-name="Flat White" data-price="560">Add to order</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Animated counters ===== -->
+    <section class="stats-band" aria-label="Sundial in numbers">
+      <div class="wrap stats-grid">
+        <div class="stat" data-reveal><strong data-count="4800" data-suffix="+">0</strong><span>Cups poured every week</span></div>
+        <div class="stat" data-reveal><strong data-count="18">0</strong><span>Single-origin beans</span></div>
+        <div class="stat" data-reveal><strong data-count="7">0</strong><span>Years roasting in Lahore</span></div>
+        <div class="stat" data-reveal><strong data-count="4.9" data-decimals="1">0</strong><span>Average guest rating</span></div>
+      </div>
+    </section>
+
+    <!-- ===== Signature pours: image slider ===== -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <h2>Four pours we are <em>known for</em></h2>
+          <p>One for every part of the day. Add any of them to your order in one tap.</p>
+        </div>
+        <div class="slider" data-autoplay="6500" role="region" aria-roledescription="carousel" aria-label="Signature pours" data-reveal>
+          <div class="slides">
+            <article class="slide" aria-roledescription="slide">
+              <div class="slide-art c-1"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/Cardamom%20Cortado%20a%20cup%20of%20coffee.jpg" alt="Cardamom Cortado" loading="lazy" decoding="async" onerror="this.remove()"></div>
+              <div class="slide-text">
+                <span class="tag">Dawn</span>
+                <h3>Cardamom Cortado</h3>
+                <p>Espresso, warm milk and freshly crushed cardamom. Our best seller since 2021.</p>
+                <span class="price">Rs 650</span>
+                <div><button class="btn btn-sm" type="button" data-add data-name="Cardamom Cortado" data-price="650">Add to order</button></div>
+              </div>
+            </article>
+            <article class="slide" aria-roledescription="slide">
+              <div class="slide-art c-3"><svg class="icon " aria-hidden="true"><use href="#i-glass"/></svg><img src="images/Mango%20Cold%20Brew%20an%20iced%20drink.jpg" alt="Mango Cold Brew" loading="lazy" decoding="async" onerror="this.remove()"></div>
+              <div class="slide-text">
+                <span class="tag">Afternoon</span>
+                <h3>Mango Cold Brew</h3>
+                <p>Twelve-hour cold brew poured over sweet Sindhri mango. Back every summer.</p>
+                <span class="price">Rs 720</span>
+                <div><button class="btn btn-sm" type="button" data-add data-name="Mango Cold Brew" data-price="720">Add to order</button></div>
+              </div>
+            </article>
+            <article class="slide" aria-roledescription="slide">
+              <div class="slide-art c-4"><svg class="icon " aria-hidden="true"><use href="#i-sun"/></svg><img src="images/Rose%20Pistachio%20Latte%20a%20latte.jpg" alt="Rose Pistachio Latte" loading="lazy" decoding="async" onerror="this.remove()"></div>
+              <div class="slide-text">
+                <span class="tag">Golden hour</span>
+                <h3>Rose Pistachio Latte</h3>
+                <p>Rose syrup, crushed pistachio and steamed milk for slow evenings.</p>
+                <span class="price">Rs 680</span>
+                <div><button class="btn btn-sm" type="button" data-add data-name="Rose Pistachio Latte" data-price="680">Add to order</button></div>
+              </div>
+            </article>
+            <article class="slide" aria-roledescription="slide">
+              <div class="slide-art c-6"><svg class="icon " aria-hidden="true"><use href="#i-moon"/></svg><img src="images/Decaf%20Hazelnut%20Mocha.jpg" alt="Decaf Hazelnut Mocha" loading="lazy" decoding="async" onerror="this.remove()"></div>
+              <div class="slide-text">
+                <span class="tag">Night</span>
+                <h3>Decaf Hazelnut Mocha</h3>
+                <p>Dark chocolate and roasted hazelnut. All of the comfort, none of the buzz.</p>
+                <span class="price">Rs 640</span>
+                <div><button class="btn btn-sm" type="button" data-add data-name="Decaf Hazelnut Mocha" data-price="640">Add to order</button></div>
+              </div>
+            </article>
+          </div>
+          <div class="slider-bar">
+            <button class="slider-btn slider-prev" type="button" aria-label="Previous slide"><svg class="icon " aria-hidden="true"><use href="#i-left"/></svg></button>
+            <div class="dots"></div>
+            <button class="slider-btn slider-next" type="button" aria-label="Next slide"><svg class="icon " aria-hidden="true"><use href="#i-right"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Fresh from the counter: photo strip ===== -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <h2>Fresh from <em>the counter</em></h2>
+          <p>A taste of what is on the menu today.</p>
+        </div>
+        <div class="fresh-grid">
+          <a class="fresh-card" href="services.html" data-reveal><img src="images/Espresso.jpg" alt="Espresso" loading="lazy" decoding="async" onerror="this.remove()"><span>Espresso</span></a>
+          <a class="fresh-card" href="services.html" data-reveal><img src="images/combo.png" alt="Coffee and brownie" loading="lazy" decoding="async" onerror="this.remove()"><span>Coffee and brownie</span></a>
+          <a class="fresh-card" href="services.html" data-reveal><img src="images/iced_caramel_macchiato.png" alt="Iced macchiato" loading="lazy" decoding="async" onerror="this.remove()"><span>Iced macchiato</span></a>
+          <a class="fresh-card" href="services.html" data-reveal><img src="images/salted_caramel_brownie.png" alt="Salted caramel brownie" loading="lazy" decoding="async" onerror="this.remove()"><span>Salted caramel brownie</span></a>
+          <a class="fresh-card" href="services.html" data-reveal><img src="images/Pumpkin%20Spice.jpg" alt="Pumpkin spice" loading="lazy" decoding="async" onerror="this.remove()"><span>Pumpkin spice</span></a>
+          <a class="fresh-card" href="services.html" data-reveal><img src="images/vanilla_bean_frappe.png" alt="Vanilla frappe" loading="lazy" decoding="async" onerror="this.remove()"><span>Vanilla frappe</span></a>
+        </div>
+        <div class="btn-row" style="justify-content:center"><a class="btn" href="services.html">See the full menu</a></div>
+      </div>
+    </section>
+
+    <!-- ===== Story with real photos ===== -->
+    <section class="section section-alt">
+      <div class="wrap story-grid">
+        <div class="collage" data-reveal>
+          <img src="images/Cafe%20or%20roastery%20interior.jpg" alt="Inside the Sundial cafe" loading="lazy" decoding="async" onerror="this.remove()">
+          <img src="images/Coffee%20beans%20or%20farm.jpg" alt="Coffee farm" loading="lazy" decoding="async" onerror="this.remove()">
+          <img src="images/Night%20cafe%20scene.jpg" alt="Sundial at night" loading="lazy" decoding="async" onerror="this.remove()">
+        </div>
+        <div data-reveal>
+          <h2 style="margin-bottom:1.2rem">From the farm to <em>your table</em></h2>
+          <p>We buy green beans from small farms, roast them every morning and serve them in a cafe built for staying a while.</p>
+          <p>Morning rush or midnight reading, there is a seat and a cup waiting for you.</p>
+          <div class="btn-row"><a class="btn" href="about.html">Read our story</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Why Sundial ===== -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <h2>Why people <em>set their day</em> by us</h2>
+          <p>Everything we serve is made in-house, from the roast to the last crumb.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card feature" data-reveal><svg class="icon " aria-hidden="true"><use href="#i-sun"/></svg><h3>Roasted this morning</h3><p>Beans are roasted at 6 AM and on the shelf by 9. Nothing sits for more than two weeks.</p></article>
+          <article class="card feature" data-reveal><svg class="icon " aria-hidden="true"><use href="#i-leaf"/></svg><h3>Fairly sourced</h3><p>We pay farms above market price and print the farm name on every bag.</p></article>
+          <article class="card feature" data-reveal><svg class="icon " aria-hidden="true"><use href="#i-users"/></svg><h3>A seat for everyone</h3><p>Freelancers, students, families and first dates get the same warm welcome.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Reviews: second slider ===== -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head" data-reveal><h2>Kind words from <em>regulars</em></h2></div>
+        <div class="slider" data-autoplay="7000" role="region" aria-roledescription="carousel" aria-label="Customer reviews" data-reveal>
+          <div class="slides">
+            <figure class="quote-slide" aria-roledescription="slide">
+              <div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg></div>
+              <blockquote>The only cafe where I know exactly what to order at 4 PM. The golden hour latte is a ritual now.</blockquote>
+              <figcaption class="who">Hira Malik<span>Designer, comes every weekday</span></figcaption>
+            </figure>
+            <figure class="quote-slide" aria-roledescription="slide">
+              <div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg></div>
+              <blockquote>They catered our product launch for 200 people and the coffee cart was the best part of the night.</blockquote>
+              <figcaption class="who">Bilal Chaudhry<span>Founder, Lahore startup</span></figcaption>
+            </figure>
+            <figure class="quote-slide" aria-roledescription="slide">
+              <div class="stars" role="img" aria-label="5 out of 5 stars"><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg><svg class="icon " aria-hidden="true"><use href="#i-star"/></svg></div>
+              <blockquote>I took the Saturday workshop and finally learned why my pour-over always tasted flat. Worth every rupee.</blockquote>
+              <figcaption class="who">Sana Tariq<span>Student</span></figcaption>
+            </figure>
+          </div>
+          <div class="slider-bar">
+            <button class="slider-btn slider-prev" type="button" aria-label="Previous review"><svg class="icon " aria-hidden="true"><use href="#i-left"/></svg></button>
+            <div class="dots"></div>
+            <button class="slider-btn slider-next" type="button" aria-label="Next review"><svg class="icon " aria-hidden="true"><use href="#i-right"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap cta-inner">
+        <h2>Your table is <em style="color:#44141e">waiting.</em></h2>
+        <div class="btn-row" style="margin:0">
+          <a class="btn" href="contact.html">Plan your visit</a>
+          <a class="btn btn-ghost" href="services.html#catering">Book catering</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer (same on every page) ===== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h3>Sundial Coffee Roasters</h3>
+          <p>Small-batch coffee for every hour of the day, roasted each morning in Lahore.</p>
+          <form class="news" id="newsletter" novalidate>
+            <label class="sr-only" for="news-email">Email for our newsletter</label>
+            <input type="email" id="news-email" name="email" placeholder="Your email for the weekly menu" autocomplete="email">
+            <button class="btn btn-sm" type="submit">Join</button>
+            <p class="error" role="alert"></p>
+          </form>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Visit us</h3>
+          <ul>
+            <li>12 Canal View Road, Lahore</li>
+            <li><a href="mailto:hello@sundialcoffee.example">hello@sundialcoffee.example</a></li>
+            <li>Open daily from 7:00 AM</li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2026 Sundial Coffee Roasters. A sample business created for the Devixo Solutions internship.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll-to-top button (shown by js/main.js after scrolling down) -->
+  <button class="to-top" type="button" aria-label="Back to top"><svg class="icon " aria-hidden="true"><use href="#i-arrow-up"/></svg></button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

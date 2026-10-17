@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Sundial Coffee Roasters</title>
+  <meta name="description" content="Address, opening hours and contact form.">
+  <!-- Apply the saved (or system) colour theme before the page paints, so there is no flash -->
+  <script>
+    (function () {
+      var theme = 'light';
+      try { theme = localStorage.getItem('sundial-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {}
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3.5v2.5M12 3.5v2.5"/></symbol>
+    <symbol id="i-glass" viewBox="0 0 24 24"><path d="M6 4h12l-1.5 16h-9z"/><path d="M7.2 10h9.6"/><path d="M13 2.5l-1.5 5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></symbol>
+    <symbol id="i-bean" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="6" ry="9.5" transform="rotate(35 12 12)"/><path d="M8 18c3.5-2 5-5.5 8-11"/></symbol>
+    <symbol id="i-cake" viewBox="0 0 24 24"><path d="M4 20h16v-8H4z"/><path d="M4 15c2.5 2 4.5-2 8 0s5.5-2 8 0"/><path d="M12 7v3M12 4.5c.6.8.6 1.4 0 2"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h11v10H2z"/><path d="M13 9.5h4l3.5 3.5V16H13"/><circle cx="6.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14c2.7 0 4.5 1.8 4.5 4.5"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1L3.2 9.4l6.1-.8z"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6.5L20.5 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l1.5 4-2 1.5a11 11 0 0 0 6 6L16 13.5l4 1.5v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.5l3 3 6-7"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 10 10 5 20 4c0 10-5 15-14 15z"/><path d="M5 19c3-5 6-8 10-10"/></symbol>
+  </svg>
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ===== Header and navigation (same on every page) ===== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo" aria-label="Sundial Coffee Roasters, home"><span class="logo-badge"><svg class="icon " aria-hidden="true"><use href="#i-sun"/></svg></span><span class="logo-name">Sundial</span></a>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-tools">
+        <button class="icon-btn cart-btn" type="button" aria-label="Open your order"><svg class="icon " aria-hidden="true"><use href="#i-bag"/></svg><span class="cart-count" aria-hidden="true">0</span></button>
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><svg class="icon " aria-hidden="true"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Order drawer: items are added with the "Add to order" buttons ===== -->
+  <div class="cart-overlay"></div>
+  <aside class="cart" id="cart" aria-label="Your order" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Your order</h2>
+      <button class="icon-btn" id="cart-close" type="button" aria-label="Close your order"><svg class="icon " aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="cart-body">
+      <p class="cart-empty" id="cart-empty">Nothing here yet. Add a drink from the menu and it will wait for you here.</p>
+      <ul id="cart-items"></ul>
+    </div>
+    <div class="cart-foot" id="cart-foot" hidden>
+      <div class="cart-total"><span>Total</span><span id="cart-total">Rs 0</span></div>
+      <a class="btn" id="cart-send" href="checkout.html">Go to checkout</a>
+      <button class="btn btn-ghost" id="cart-clear" type="button">Clear order</button>
+      <p class="cart-note">Demo checkout: nothing is charged and no payment details are needed.</p>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="wrap">
+        <h1>Come say <em>hello</em></h1>
+        <p>Questions, bookings or catering enquiries? Write to us and we will reply within one working day.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap contact-grid">
+        <div data-reveal>
+          <ul class="info-list">
+            <li><svg class="icon " aria-hidden="true"><use href="#i-pin"/></svg><div><strong>Address</strong>12 Canal View Road, Lahore, Pakistan</div></li>
+            <li><svg class="icon " aria-hidden="true"><use href="#i-phone"/></svg><div><strong>Phone</strong><a href="tel:+920000000000">+92 000 0000000</a></div></li>
+            <li><svg class="icon " aria-hidden="true"><use href="#i-mail"/></svg><div><strong>Email</strong><a href="mailto:hello@sundialcoffee.example">hello@sundialcoffee.example</a></div></li>
+          </ul>
+          <div class="hours">
+            <h3>Opening hours <span class="open-badge" id="open-badge">Checking...</span></h3>
+            <ul>
+              <li><span>Monday to Saturday</span><span>7:00 AM to 11:00 PM</span></li>
+              <li><span>Sunday</span><span>8:00 AM to 10:00 PM</span></li>
+            </ul>
+          </div>
+          <figure class="map">
+            <svg viewBox="0 0 400 220" role="img" aria-label="Illustrated map showing Sundial on Canal View Road">
+            <rect width="400" height="220" fill="#e6d0b2"/>
+            <path d="M-10 150 Q90 110 180 140 T410 120 V170 Q300 190 190 165 T-10 190 Z" fill="#9fd6ca" stroke="#44141e" stroke-width="3"/>
+            <g fill="#f9f4ec" stroke="#44141e" stroke-width="3">
+              <rect x="20" y="20" width="90" height="60" rx="10"/><rect x="130" y="20" width="70" height="60" rx="10"/>
+              <rect x="220" y="20" width="80" height="60" rx="10"/><rect x="320" y="20" width="60" height="60" rx="10"/>
+              <rect x="30" y="195" width="100" height="20" rx="8"/><rect x="250" y="190" width="110" height="25" rx="8"/>
+            </g>
+            <path d="M0 100 H400" stroke="#fff" stroke-width="12"/><path d="M0 100 H400" stroke="#44141e" stroke-width="2" stroke-dasharray="10 10"/>
+            <path d="M210 0 V100" stroke="#fff" stroke-width="10"/>
+            <text x="30" y="96" font-family="Manrope, sans-serif" font-size="11" font-weight="800" fill="#44141e">CANAL VIEW ROAD</text>
+            <g transform="translate(210 70)"><path d="M0 0 C-22 -24 -22 -54 0 -54 C22 -54 22 -24 0 0Z" fill="#8a5a2b" stroke="#44141e" stroke-width="3"/><circle cy="-34" r="7" fill="#f9f4ec" stroke="#44141e" stroke-width="2"/></g>
+          </svg>
+            <figcaption>Illustration, not a real map. Find us on Canal View Road, next to the bridge.</figcaption>
+          </figure>
+        </div>
+
+        <div data-reveal>
+          <!-- novalidate: the browser's own pop-ups are off, js/main.js shows friendlier messages -->
+          <form class="card form" id="contact-form" novalidate>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" autocomplete="name" aria-describedby="name-error">
+              <p class="error" id="name-error"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-error">
+              <p class="error" id="email-error"></p>
+            </div>
+            <div class="field">
+              <label for="phone">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" aria-describedby="phone-error">
+              <p class="error" id="phone-error"></p>
+            </div>
+            <div class="field">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" aria-describedby="subject-error">
+                <option value="">Choose one...</option>
+                <option>Table booking</option>
+                <option>Catering enquiry</option>
+                <option>Wholesale beans</option>
+                <option>Workshop</option>
+                <option>Something else</option>
+              </select>
+              <p class="error" id="subject-error"></p>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" maxlength="500" aria-describedby="message-error"></textarea>
+              <p class="counter" id="message-count">0 / 500</p>
+              <p class="error" id="message-error"></p>
+            </div>
+            <button class="btn" type="submit">Send message</button>
+          </form>
+
+          <div class="card success" id="form-success" tabindex="-1" hidden>
+            <svg class="icon " aria-hidden="true"><use href="#i-check"/></svg>
+            <h3>Thank you, <span id="success-name"></span>!</h3>
+            <p>Your message is ready to send. This is a demo form with no server, so nothing has been delivered.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer (same on every page) ===== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h3>Sundial Coffee Roasters</h3>
+          <p>Small-batch coffee for every hour of the day, roasted each morning in Lahore.</p>
+          <form class="news" id="newsletter" novalidate>
+            <label class="sr-only" for="news-email">Email for our newsletter</label>
+            <input type="email" id="news-email" name="email" placeholder="Your email for the weekly menu" autocomplete="email">
+            <button class="btn btn-sm" type="submit">Join</button>
+            <p class="error" role="alert"></p>
+          </form>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Visit us</h3>
+          <ul>
+            <li>12 Canal View Road, Lahore</li>
+            <li><a href="mailto:hello@sundialcoffee.example">hello@sundialcoffee.example</a></li>
+            <li>Open daily from 7:00 AM</li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2026 Sundial Coffee Roasters. A sample business created for the Devixo Solutions internship.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll-to-top button (shown by js/main.js after scrolling down) -->
+  <button class="to-top" type="button" aria-label="Back to top"><svg class="icon " aria-hidden="true"><use href="#i-arrow-up"/></svg></button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

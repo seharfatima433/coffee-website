@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu and Services | Sundial Coffee Roasters</title>
+  <meta name="description" content="Menu by the hour, catering packages, wholesale beans and workshops.">
+  <!-- Apply the saved (or system) colour theme before the page paints, so there is no flash -->
+  <script>
+    (function () {
+      var theme = 'light';
+      try { theme = localStorage.getItem('sundial-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (e) {}
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3.5v2.5M12 3.5v2.5"/></symbol>
+    <symbol id="i-glass" viewBox="0 0 24 24"><path d="M6 4h12l-1.5 16h-9z"/><path d="M7.2 10h9.6"/><path d="M13 2.5l-1.5 5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></symbol>
+    <symbol id="i-bean" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="6" ry="9.5" transform="rotate(35 12 12)"/><path d="M8 18c3.5-2 5-5.5 8-11"/></symbol>
+    <symbol id="i-cake" viewBox="0 0 24 24"><path d="M4 20h16v-8H4z"/><path d="M4 15c2.5 2 4.5-2 8 0s5.5-2 8 0"/><path d="M12 7v3M12 4.5c.6.8.6 1.4 0 2"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h11v10H2z"/><path d="M13 9.5h4l3.5 3.5V16H13"/><circle cx="6.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14c2.7 0 4.5 1.8 4.5 4.5"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8 6.6 19.7l1.1-6.1L3.2 9.4l6.1-.8z"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6.5L20.5 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l1.5 4-2 1.5a11 11 0 0 0 6 6L16 13.5l4 1.5v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.5l3 3 6-7"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 10 10 5 20 4c0 10-5 15-14 15z"/><path d="M5 19c3-5 6-8 10-10"/></symbol>
+  </svg>
+
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ===== Header and navigation (same on every page) ===== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo" aria-label="Sundial Coffee Roasters, home"><span class="logo-badge"><svg class="icon " aria-hidden="true"><use href="#i-sun"/></svg></span><span class="logo-name">Sundial</span></a>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" aria-current="page">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-tools">
+        <button class="icon-btn cart-btn" type="button" aria-label="Open your order"><svg class="icon " aria-hidden="true"><use href="#i-bag"/></svg><span class="cart-count" aria-hidden="true">0</span></button>
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><svg class="icon " aria-hidden="true"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Order drawer: items are added with the "Add to order" buttons ===== -->
+  <div class="cart-overlay"></div>
+  <aside class="cart" id="cart" aria-label="Your order" aria-hidden="true">
+    <div class="cart-head">
+      <h2>Your order</h2>
+      <button class="icon-btn" id="cart-close" type="button" aria-label="Close your order"><svg class="icon " aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="cart-body">
+      <p class="cart-empty" id="cart-empty">Nothing here yet. Add a drink from the menu and it will wait for you here.</p>
+      <ul id="cart-items"></ul>
+    </div>
+    <div class="cart-foot" id="cart-foot" hidden>
+      <div class="cart-total"><span>Total</span><span id="cart-total">Rs 0</span></div>
+      <a class="btn" id="cart-send" href="checkout.html">Go to checkout</a>
+      <button class="btn btn-ghost" id="cart-clear" type="button">Clear order</button>
+      <p class="cart-note">Demo checkout: nothing is charged and no payment details are needed.</p>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="wrap">
+        <h1>Menu by <em>the hour</em></h1>
+        <p>Every drink and bake we make. Pick a time of day to see what we pour then. Add anything to your order, then check out.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="filter-bar" role="group" aria-label="Filter the menu by time of day">
+          <button class="filter-btn" type="button" data-menu-filter="all" aria-pressed="false">All day</button>
+          <button class="filter-btn" type="button" data-menu-filter="dawn" aria-pressed="false">Dawn</button>
+          <button class="filter-btn" type="button" data-menu-filter="morning" aria-pressed="false">Morning</button>
+          <button class="filter-btn" type="button" data-menu-filter="afternoon" aria-pressed="false">Afternoon</button>
+          <button class="filter-btn" type="button" data-menu-filter="golden" aria-pressed="false">Golden hour</button>
+          <button class="filter-btn" type="button" data-menu-filter="night" aria-pressed="false">Night</button>
+        </div>
+        <ul class="menu-grid">
+          <li class="menu-item c-1" data-times="dawn morning" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/Espresso.jpg" alt="Espresso" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Espresso</h3>
+              <p>A short, intense double shot of our house blend.</p>
+              <div class="row"><span class="price">Rs 380</span><button class="btn btn-sm" type="button" data-add data-name="Espresso" data-price="380">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-2" data-times="dawn morning" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/Ristretto.jpg" alt="Ristretto" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Ristretto</h3>
+              <p>Even shorter and sweeter, a concentrated sip.</p>
+              <div class="row"><span class="price">Rs 400</span><button class="btn btn-sm" type="button" data-add data-name="Ristretto" data-price="400">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-3" data-times="dawn morning" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/Americano.jpg" alt="Americano" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Americano</h3>
+              <p>Espresso lengthened with hot water. Clean and bold.</p>
+              <div class="row"><span class="price">Rs 360</span><button class="btn btn-sm" type="button" data-add data-name="Americano" data-price="360">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-4" data-times="dawn morning" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/Cinnamon%20Coffee.jpg" alt="Cinnamon Coffee" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Cinnamon Coffee</h3>
+              <p>Warm cinnamon and a hint of sugar. A cosy start.</p>
+              <div class="row"><span class="price">Rs 600</span><button class="btn btn-sm" type="button" data-add data-name="Cinnamon Coffee" data-price="600">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-5" data-times="morning afternoon" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/vanila.jpg" alt="Vanilla Latte" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Vanilla Latte</h3>
+              <p>Smooth espresso, steamed milk and real vanilla.</p>
+              <div class="row"><span class="price">Rs 620</span><button class="btn btn-sm" type="button" data-add data-name="Vanilla Latte" data-price="620">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-6" data-times="morning night" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/Hazelnut%20coffee.jpg" alt="Hazelnut Coffee" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Hazelnut Coffee</h3>
+              <p>Roasted hazelnut and silky milk foam.</p>
+              <div class="row"><span class="price">Rs 640</span><button class="btn btn-sm" type="button" data-add data-name="Hazelnut Coffee" data-price="640">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-1" data-times="morning night" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/relaxing.png" alt="Relaxing Reader Latte" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Relaxing Reader Latte</h3>
+              <p>Slow, creamy and made for a book by the window.</p>
+              <div class="row"><span class="price">Rs 600</span><button class="btn btn-sm" type="button" data-add data-name="Relaxing Reader Latte" data-price="600">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-2" data-times="afternoon" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/energy.png" alt="Iced Energy Coffee" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Iced Energy Coffee</h3>
+              <p>Cold, sweet and bright. Our fix for a long day.</p>
+              <div class="row"><span class="price">Rs 650</span><button class="btn btn-sm" type="button" data-add data-name="Iced Energy Coffee" data-price="650">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-3" data-times="afternoon" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/Fruity%20%20Coffee.jpg" alt="Fruity Coffee" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Fruity Coffee</h3>
+              <p>Orange, espresso and ice. Zesty and refreshing.</p>
+              <div class="row"><span class="price">Rs 690</span><button class="btn btn-sm" type="button" data-add data-name="Fruity Coffee" data-price="690">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-4" data-times="afternoon golden" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/iced_caramel_macchiato.png" alt="Iced Caramel Macchiato" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Iced Caramel Macchiato</h3>
+              <p>Layers of milk, espresso and caramel over ice.</p>
+              <div class="row"><span class="price">Rs 720</span><button class="btn btn-sm" type="button" data-add data-name="Iced Caramel Macchiato" data-price="720">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-5" data-times="afternoon" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/vanilla_bean_frappe.png" alt="Vanilla Bean Frappe" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Vanilla Bean Frappe</h3>
+              <p>Blended vanilla bean, cream and ice.</p>
+              <div class="row"><span class="price">Rs 700</span><button class="btn btn-sm" type="button" data-add data-name="Vanilla Bean Frappe" data-price="700">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-6" data-times="afternoon golden" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/caramel%20coffee.jpg" alt="Caramel Coffee" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Caramel Coffee</h3>
+              <p>Whipped cream and buttery caramel over espresso.</p>
+              <div class="row"><span class="price">Rs 620</span><button class="btn btn-sm" type="button" data-add data-name="Caramel Coffee" data-price="620">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-1" data-times="golden" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/Toffee%20Coffee.jpg" alt="Toffee Coffee" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Toffee Coffee</h3>
+              <p>Toffee sauce, milk and a crunchy topping.</p>
+              <div class="row"><span class="price">Rs 650</span><button class="btn btn-sm" type="button" data-add data-name="Toffee Coffee" data-price="650">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-2" data-times="golden night" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/Chocolatey%20Nutty%20Coffee.jpg" alt="Chocolatey Nutty Coffee" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Chocolatey Nutty Coffee</h3>
+              <p>Chocolate, nuts and cold coffee blended thick.</p>
+              <div class="row"><span class="price">Rs 660</span><button class="btn btn-sm" type="button" data-add data-name="Chocolatey Nutty Coffee" data-price="660">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-3" data-times="golden night" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/Pumpkin%20Spice.jpg" alt="Pumpkin Spice" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Pumpkin Spice</h3>
+              <p>Autumn in a jar: pumpkin, cinnamon and cream.</p>
+              <div class="row"><span class="price">Rs 680</span><button class="btn btn-sm" type="button" data-add data-name="Pumpkin Spice" data-price="680">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-4" data-times="golden night" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/Mocha%20coffee.jpg" alt="Mocha Coffee" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Mocha Coffee</h3>
+              <p>Espresso, dark chocolate and a cloud of cream.</p>
+              <div class="row"><span class="price">Rs 640</span><button class="btn btn-sm" type="button" data-add data-name="Mocha Coffee" data-price="640">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-5" data-times="golden night" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/double_dark_mocha.png" alt="Double Dark Mocha" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Double Dark Mocha</h3>
+              <p>Twice the chocolate, twice the comfort.</p>
+              <div class="row"><span class="price">Rs 700</span><button class="btn btn-sm" type="button" data-add data-name="Double Dark Mocha" data-price="700">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-6" data-times="golden night" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/brownie.png" alt="Fudge Brownie" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Fudge Brownie</h3>
+              <p>Dense, gooey and baked fresh every day.</p>
+              <div class="row"><span class="price">Rs 380</span><button class="btn btn-sm" type="button" data-add data-name="Fudge Brownie" data-price="380">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-1" data-times="golden night" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/salted_caramel_brownie.png" alt="Salted Caramel Brownie" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Salted Caramel Brownie</h3>
+              <p>Warm brownie with salted caramel in the middle.</p>
+              <div class="row"><span class="price">Rs 480</span><button class="btn btn-sm" type="button" data-add data-name="Salted Caramel Brownie" data-price="480">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-2" data-times="golden night" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/walnut_fudge_brownie.png" alt="Walnut Fudge Brownie" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Walnut Fudge Brownie</h3>
+              <p>Crunchy walnuts folded into rich fudge.</p>
+              <div class="row"><span class="price">Rs 460</span><button class="btn btn-sm" type="button" data-add data-name="Walnut Fudge Brownie" data-price="460">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-3" data-times="afternoon golden" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/combo.png" alt="Coffee and Brownie Combo" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Coffee and Brownie Combo</h3>
+              <p>A latte and a brownie on one table. Best value.</p>
+              <div class="row"><span class="price">Rs 790</span><button class="btn btn-sm" type="button" data-add data-name="Coffee and Brownie Combo" data-price="790">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-4" data-times="dawn morning afternoon golden night" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/bean.png" alt="House Blend, 250 g bag" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>House Blend, 250 g bag</h3>
+              <p>Chocolate, almond and a hint of orange. Roasted this week.</p>
+              <div class="row"><span class="price">Rs 1,950</span><button class="btn btn-sm" type="button" data-add data-name="House Blend, 250 g bag" data-price="1950">Add</button></div>
+            </div>
+          </li>
+          <li class="menu-item c-5" data-times="dawn morning afternoon golden night" data-reveal>
+            <div class="pic"><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><img src="images/coffee_bean_3d.png" alt="Single-origin Beans, 250 g" loading="lazy" decoding="async" onerror="this.remove()"></div>
+            <div class="info">
+              <h3>Single-origin Beans, 250 g</h3>
+              <p>The bean of the week from one of our partner farms.</p>
+              <div class="row"><span class="price">Rs 2,200</span><button class="btn btn-sm" type="button" data-add data-name="Single-origin Beans, 250 g" data-price="2200">Add</button></div>
+            </div>
+          </li>
+        </ul>
+        <p class="menu-note" id="menu-note" role="status"></p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="services">
+      <div class="wrap">
+        <div class="section-head" data-reveal><h2>Beyond <em>the cafe</em></h2><p>Four ways to bring Sundial into your day.</p></div>
+        <div class="grid-2">
+          <article class="card service-card" data-reveal><svg class="icon " aria-hidden="true"><use href="#i-cup"/></svg><h3>Dine-in</h3><p>Eighteen seats, a window bar for laptops and a quiet corner for reading. Walk in any time.</p></article>
+          <article class="card service-card" data-reveal><svg class="icon " aria-hidden="true"><use href="#i-truck"/></svg><h3>Catering</h3><p>A coffee cart with trained baristas for offices, weddings and launches, from 30 to 300 guests.</p></article>
+          <article class="card service-card" data-reveal><svg class="icon " aria-hidden="true"><use href="#i-bean"/></svg><h3>Wholesale beans</h3><p>Fresh-roasted beans for restaurants and cafes, with free machine calibration and barista training.</p></article>
+          <article class="card service-card" data-reveal><svg class="icon " aria-hidden="true"><use href="#i-users"/></svg><h3>Barista workshops</h3><p>Two-hour hands-on classes on brewing, espresso and latte art every Saturday.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="catering">
+      <div class="wrap">
+        <div class="section-head" data-reveal><h2>Catering <em>packages</em></h2><p>Sample prices. Every event is quoted individually.</p></div>
+        <div class="table-wrap" data-reveal>
+          <table class="plans">
+            <thead><tr><th scope="col">Package</th><th scope="col">Guests</th><th scope="col">What is included</th><th scope="col">From</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Small</th><td>Up to 30</td><td>1 barista, espresso and filter coffee, 2 pastries per guest</td><td class="big">Rs 45,000</td></tr>
+              <tr><th scope="row">Standard</th><td>Up to 100</td><td>2 baristas, full menu cart, dessert table, 3 hours of service</td><td class="big">Rs 120,000</td></tr>
+              <tr><th scope="row">Grand</th><td>Up to 300</td><td>4 baristas, 2 carts, custom drink, branded cups, 5 hours of service</td><td class="big">Rs 320,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="btn-row"><a class="btn" href="contact.html">Ask for a quote</a></div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap">
+        <div class="section-head" data-reveal><h2>Questions we <em>hear a lot</em></h2></div>
+        <div class="faq" data-reveal>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-q-1">Do you offer vegan or lactose-free milk?<svg class="icon " aria-hidden="true"><use href="#i-chevron"/></svg></button>
+            <div class="faq-panel" id="faq-1" role="region" aria-labelledby="faq-q-1"><div><p>Yes. Oat, almond and lactose-free milk are available for every drink at no extra charge.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-q-2">Can I book a table or the whole cafe?<svg class="icon " aria-hidden="true"><use href="#i-chevron"/></svg></button>
+            <div class="faq-panel" id="faq-2" role="region" aria-labelledby="faq-q-2"><div><p>Tables of six or more can be reserved through our contact form. For private events we can close the cafe and help with decor and music.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-q-3">Do you deliver coffee beans?<svg class="icon " aria-hidden="true"><use href="#i-chevron"/></svg></button>
+            <div class="faq-panel" id="faq-3" role="region" aria-labelledby="faq-q-3"><div><p>We deliver fresh bags across Lahore within 24 hours and ship to the rest of Pakistan in 2 to 4 working days.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-q-4">How does catering work?<svg class="icon " aria-hidden="true"><use href="#i-chevron"/></svg></button>
+            <div class="faq-panel" id="faq-4" role="region" aria-labelledby="faq-q-4"><div><p>Tell us the date, location and number of guests. We bring a coffee cart, baristas and pastries, and handle the setup and clean-up.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-q-5">Is there Wi-Fi, and can I work here?<svg class="icon " aria-hidden="true"><use href="#i-chevron"/></svg></button>
+            <div class="faq-panel" id="faq-5" role="region" aria-labelledby="faq-q-5"><div><p>Yes. Wi-Fi is free and we keep sockets at the window bar. It is quietest before 11 AM on weekdays.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-6" id="faq-q-6">Do you run workshops?<svg class="icon " aria-hidden="true"><use href="#i-chevron"/></svg></button>
+            <div class="faq-panel" id="faq-6" role="region" aria-labelledby="faq-q-6"><div><p>Every Saturday at 11 AM. Beginners learn brewing at home, and advanced guests try latte art. Spots are limited to eight people.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer (same on every page) ===== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h3>Sundial Coffee Roasters</h3>
+          <p>Small-batch coffee for every hour of the day, roasted each morning in Lahore.</p>
+          <form class="news" id="newsletter" novalidate>
+            <label class="sr-only" for="news-email">Email for our newsletter</label>
+            <input type="email" id="news-email" name="email" placeholder="Your email for the weekly menu" autocomplete="email">
+            <button class="btn btn-sm" type="submit">Join</button>
+            <p class="error" role="alert"></p>
+          </form>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Visit us</h3>
+          <ul>
+            <li>12 Canal View Road, Lahore</li>
+            <li><a href="mailto:hello@sundialcoffee.example">hello@sundialcoffee.example</a></li>
+            <li>Open daily from 7:00 AM</li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2026 Sundial Coffee Roasters. A sample business created for the Devixo Solutions internship.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll-to-top button (shown by js/main.js after scrolling down) -->
+  <button class="to-top" type="button" aria-label="Back to top"><svg class="icon " aria-hidden="true"><use href="#i-arrow-up"/></svg></button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
